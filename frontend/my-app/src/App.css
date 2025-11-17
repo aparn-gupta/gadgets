@@ -26,7 +26,7 @@ header {
 }
 
 .wrappers-wrapper {
-  background-image: url('https://techcircuitworld.com/wp-content/uploads/2024/08/istockphoto-1497558248-612x612-2.webp') ;
+  /* background-image: url('https://techcircuitworld.com/wp-content/uploads/2024/08/istockphoto-1497558248-612x612-2.webp') ; */
     z-index : -40;
    
 }
@@ -97,7 +97,7 @@ header {
 }
 
 .custom-bg-image {
-    background-image: url('https://techcircuitworld.com/wp-content/uploads/2024/08/istockphoto-1497558248-612x612-2.webp');
+    /* background-image: url('https://techcircuitworld.com/wp-content/uploads/2024/08/istockphoto-1497558248-612x612-2.webp'); */
 }
 
 
