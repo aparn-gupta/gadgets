@@ -140,12 +140,13 @@ const paginationBtns = btnsArray.map((item, index) =>  {
      
 
    
-        <header>
+        <header style={{background: "#162742"}}>
        
-          <img
-            src="https://techcircuitworld.com/wp-content/uploads/2024/08/istockphoto-1497558248-612x612-2.webp"
+          {/* <img
+            {/* src="https://techcircuitworld.com/wp-content/uploads/2024/08/istockphoto-1497558248-612x612-2.webp" */}
+          src="https://techcircuitworld.com/wp-content/uploads/2024/08/istockphoto-1497558248-612x612-2.webp"
             className="mybackground"
-          />
+          /> */}
           {/* <img src={img1} className='myforeground'  /> */}
          <div className="flex justify-center items-center" style={{height: "100vh"}}>
          <h1 className="text-white text-center">
