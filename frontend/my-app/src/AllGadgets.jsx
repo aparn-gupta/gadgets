@@ -147,15 +147,15 @@ const AllGadgets = () => {
 
           {fetchedData.length == 0 && (
             <div className="text-3xl text-white text-center w-full">
-              <div className="text-center ">
+              <div className="text-center z-10">
                  
                 Please wait for Render's free tier server to start
               </div>
-              <div className="text-center mt-4">
+              <div className="text-center mt-4 z-10">
                  
                 {timerSecs}s
                 <div
-                  className="flex justify-center mt-6"
+                  className="flex justify-center mt-6 z-10"
                   onClick={() => {
                     window.location.reload();
                   }}
