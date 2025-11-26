@@ -286,7 +286,7 @@ const AllGadgets = () => {
             <div className="text-white flex mx-auto">{paginationBtns}</div>
           </div>
 
-          <Footer className="text-white" />
+          <Footer className="text-white z-10" />
        
       </div>
 
