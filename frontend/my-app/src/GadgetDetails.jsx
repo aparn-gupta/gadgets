@@ -18,12 +18,14 @@ const GadgetDetails = () => {
     const [myGadgetData, setMyGadgetData] = useState([])
     
     const [successMessage, setSuccessMessage] = useState('')
+    const [loading, setLoading] = useState(false)
     
     
     
     
     useEffect(() => {
       const fetchgadgetData = async () => {
+        setLoading(true)
         try {
           const fetchResponse = await fetch("https://ultimategadgeting.onrender.com/allgadgets")
          const gadgetData = await fetchResponse.json()
@@ -34,11 +36,13 @@ const GadgetDetails = () => {
         }
       
         else if (!fetchResponse.ok) {
-          throw new Error
+          throw new Error()
         }
         
         } catch (err) {
           setSuccessMessage("Error fetching gadgets")
+        } finally {
+          setLoading(false)
         }
       }
       fetchgadgetData()
@@ -73,6 +77,8 @@ const GadgetDetails = () => {
 
 
     const handleDelete = async () => {
+      setLoading(true)
+
       try {
         let deleteUrl = `https://ultimategadgeting.onrender.com/allgadgets/${itemId}`
         const response = await fetch(deleteUrl, {
@@ -99,6 +105,9 @@ const GadgetDetails = () => {
      catch (err) {
       console.log(err)
 
+    } finally {
+      setLoading(false)
+
     }
   }
 
@@ -112,6 +121,8 @@ const GadgetDetails = () => {
 
   const updateDetails = async (e) => {
     e.preventDefault()
+    setLoading(true)
+
     try {
       const updateUrl = `https://ultimategadgeting.onrender.com/allgadgets/${itemId}`
       const updateResponse = await fetch(updateUrl, {
@@ -139,8 +150,12 @@ const GadgetDetails = () => {
     } catch (err) {
       console.log(err)
      
+    } finally {
+      setLoading(true)
+
     }
   }
+
 
 
 
@@ -152,6 +167,13 @@ const GadgetDetails = () => {
   return (
     <div className='w-100  '>
       <Navbar />
+
+
+      <div className=' w-screen h-screen bg-white fixed top-0 left-0 z-1000 justify-center items-center' style={{display: loading ? 'flex' : 'none'}}>
+     
+      <img src=' https://i.pinimg.com/originals/36/3c/2e/363c2ec45f7668e82807a0c053d1e1d0.gif'  className='w-52 h-52 ' />
+
+         </div>
 
 
       
