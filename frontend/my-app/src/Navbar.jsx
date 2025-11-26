@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import logoImg from "./assets/ug-logo.png"
 
 const Navbar = () => {
   return (
@@ -9,8 +10,7 @@ const Navbar = () => {
 
             <Link to="/" className='no-underline text-decoration-none text-white'>
             <div className='flex h-full items-center'>
-               {/* <img src="https://st2.depositphotos.com/43025966/43029/i/450/depositphotos_430293310-stock-photo-minimalistic-logo-your-company.jpg" className='w-16 h-16 mr-2' /> */}
-               <img src="https://png.pngtree.com/png-vector/20230607/ourmid/pngtree-letter-logo-for-company-vector-png-image_7123299.png" className='w-10 h-10 mr-4' />
+               <img src={logoImg} className='w-10 h-10 mr-4' />
 
              
               <p className='text-2xl mt-3 no-underline text-white' style={{textDecoration: "none"}}> Ultimate Gadgeting</p>
