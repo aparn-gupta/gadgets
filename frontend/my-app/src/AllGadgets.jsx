@@ -77,7 +77,7 @@ const AllGadgets = () => {
 
   const paginationBtns = btnsArray.map((item, index) => {
     return (
-      <div key={index} className="mx-2">
+      <div key={index} className="mx-2 z-10">
         <button
           className="btn btn-primary w-10 h-10 bg-gradient"
           onClick={() => {
