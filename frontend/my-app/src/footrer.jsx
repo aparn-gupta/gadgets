@@ -14,7 +14,7 @@ const Footer = () => {
 
         <footer>
             <div className={`w-screen ${footerWhite? 'bg-white text-blue-950' : 'text-white'}`}>
-                <div className='w-11/12 mx-auto flex justify-between py-3 '>
+                <div className='w-11/12 mx-auto flex justify-between py-3 z-10 '>
                 <div> © 2025 UltimateGadgeting</div>
 
 <div className='flex '>
