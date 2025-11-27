@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { Link } from "react-router";
 import Navbar from "./Navbar";
 import Footer from "./footrer";
+import loader from './assets/loader.gif'
+
 
 const AllGadgets = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +14,8 @@ const AllGadgets = () => {
   const [timerSecs, setTimerSecs] = useState(60);
   const [fetchedData, setFetchedData] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false)
+
 
 
   let imgEl = useRef()
@@ -92,7 +96,10 @@ const AllGadgets = () => {
   });
 
   useEffect(() => {
+
     const fetchgadgetData = async () => {
+      setLoading(true)
+
       try {
         const fetchResponse = await fetch(
           "https://ultimategadgeting.onrender.com/allgadgets"
@@ -107,6 +114,9 @@ const AllGadgets = () => {
         }
       } catch (err) {
         setErrorMessage("Error fetching gadgets");
+      } finally {
+        setLoading(false)
+
       }
     };
     fetchgadgetData();
@@ -131,6 +141,38 @@ const AllGadgets = () => {
     <div>
       <Navbar />
 
+        <div className=' w-screen h-screen bg-white fixed top-0 left-0 z-1000 justify-center items-center' style={{display: loading ? 'flex' : 'none'}}>
+
+    <div>
+    <div className="w-full  flex justify-center">
+      <img src={loader}  className='w-52 h-52 ' />
+      </div>
+           
+           
+           <div className="text-3xl  text-center w-full text-[#0B779C]">
+          
+             <div className="text-center z-20">
+                
+               Please wait for Render's free tier server to start
+             </div>
+             <div className="text-center mt-4 z-10">
+                
+               {timerSecs}s
+               <div
+                 className="flex justify-center mt-6 z-10"
+                 onClick={() => {
+                   window.location.reload();
+                 }}
+               >
+                 <i className="fa-solid fa-rotate-right text-5xl"></i>
+               </div>
+             </div>
+           </div>
+    </div>
+    
+      
+               </div>
+
       <div className=" bg-slate-500 relative overflow-hidden" >
 
         <img  src={bgImg} className="absolute top-0 w-full h-full bg-img " ref={imgEl} />
@@ -145,26 +187,26 @@ const AllGadgets = () => {
             </h1>
           </div>
 
-          {fetchedData.length == 0 && (
+          {/* {fetchedData.length == 0 && (
             <div className="text-3xl text-white text-center w-full">
-              <div className="text-center z-10">
+              <div className="text-center z-1000">
                  
                 Please wait for Render's free tier server to start
               </div>
-              <div className="text-center mt-4 z-10">
+              <div className="text-center mt-4 z-1000">
                  
                 {timerSecs}s
                 <div
-                  className="flex justify-center mt-6 z-10"
+                  className="flex justify-center mt-6 z-1000"
                   onClick={() => {
                     window.location.reload();
                   }}
                 >
-                  <i className="fa-solid fa-rotate-right text-white text-5xl"></i>
+                  <i className="fa-solid fa-rotate-right text-white text-5xl z-100"></i>
                 </div>
               </div>
             </div>
-          )}
+          )} */}
 
           {fetchedData.length == 0 ? (
             ""
@@ -286,7 +328,7 @@ const AllGadgets = () => {
             <div className="text-white flex mx-auto">{paginationBtns}</div>
           </div>
 
-          <Footer className="text-white z-10" />
+          <Footer className="text-white z-100" />
        
       </div>
 

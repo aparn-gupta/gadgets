@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router'
 import { Link } from 'react-router'
 import Navbar from './Navbar'
 import Footer from './footrer'
+import loader from './assets/loader.gif'
 
 const GadgetDetails = () => {
 
@@ -171,7 +172,7 @@ const GadgetDetails = () => {
 
       <div className=' w-screen h-screen bg-white fixed top-0 left-0 z-1000 justify-center items-center' style={{display: loading ? 'flex' : 'none'}}>
      
-      <img src=' https://i.pinimg.com/originals/36/3c/2e/363c2ec45f7668e82807a0c053d1e1d0.gif'  className='w-52 h-52 ' />
+      <img src={loader}  className='w-52 h-52 ' />
 
          </div>
 
